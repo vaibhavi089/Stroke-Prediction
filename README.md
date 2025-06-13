@@ -30,8 +30,8 @@ A machine learning model that predicts stroke likelihood using patient health da
 ## ⚙️ Installation
   ```bash
   pip install -r requirements.txt
-requirements.txt
 ```
+First create a requirements.txt file with these contents:
 ```text
 pandas>=1.3.0
 numpy>=1.21.0
@@ -43,5 +43,20 @@ imbalanced-learn>=0.9.0
 optuna>=3.0.0
 shap>=0.40.0
 ```
-##Usage
+Then install dependencies:
+```bash
+ pip install -r requirements.txt
+```
+## 🚀 Usage
+- Place your dataset as healthcare-dataset-stroke-data.csv in the project root.
+- Run the Jupyter notebook:
+```bash
+jupyter notebook model.ipynb
+```
+- Key execution steps:
+  1) Data loading and preprocessing
+  2) Feature engineering
+  3) Model training and optimization
+  4) Evaluation
+  
   
