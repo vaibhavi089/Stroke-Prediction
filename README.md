@@ -1,61 +1,49 @@
 # Stroke Prediction Model
 
-## Overview
-This project implements a machine learning model to predict the likelihood of stroke using the [Healthcare Dataset Stroke Data](https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset). The model leverages advanced techniques such as feature engineering, resampling, hyperparameter optimization, and ensemble learning to achieve high accuracy. This work is part of my machine learning portfolio, showcasing skills in data preprocessing, model building, and evaluation.
-
-## Table of Contents
-- [Project Description](#project-description)
-- [Dataset](#dataset)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Model Pipeline](#model-pipeline)
-- [Results](#results)
-- [Dependencies](#dependencies)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
-## Project Description
-The goal is to build a robust classifier to predict stroke occurrences based on patient data. The notebook (`model.ipynb`) includes:
-- Data preprocessing (handling missing values, encoding categorical variables)
-- Feature engineering (creating interaction features like `age_glucose` and `bmi_age_ratio`)
-- Handling class imbalance using SMOTEENN
-- Feature selection with SHAP values
-- Hyperparameter tuning with Optuna
-- Ensemble modeling using stacking and voting classifiers
-- Model evaluation with classification metrics
-
-This project demonstrates proficiency in Python, machine learning libraries, and best practices for building predictive models.
-
-## Dataset
-The dataset is sourced from Kaggle and contains 5,110 records with 12 features, including:
-- **Demographic**: Gender, age, marital status, residence type
-- **Health**: Hypertension, heart disease, average glucose level, BMI
-- **Lifestyle**: Work type, smoking status
-- **Target**: Stroke (binary: 0 = No, 1 = Yes)
-
-The dataset is imbalanced, with fewer stroke cases, addressed using SMOTEENN resampling.
+This project focuses on predicting the likelihood of a stroke using a healthcare dataset. The model employs advanced machine learning techniques, including ensemble methods and hyperparameter optimization, to achieve high accuracy.
 
 ## Features
-- **Data Cleaning**: Removed records with `gender` as 'Other' and `work_type` as 'Never_worked'; filled missing BMI with median.
-- **Feature Engineering**: Added `age_glucose` (age * glucose level) and `bmi_age_ratio` (BMI / (age + 1)).
-- **Encoding**: Converted categorical variables to dummy variables.
-- **Feature Selection**: Selected top 15 features using SHAP values from LightGBM.
-- **Models**: Ensemble of XGBoost, LightGBM, CatBoost, and SVC, combined via stacking (Logistic Regression meta-learner) and soft voting.
-- **Optimization**: Tuned XGBoost hyperparameters using Optuna over 30 trials.
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/stroke-prediction.git
-   cd stroke-prediction
+- **Data Preprocessing**: Handles missing values, removes irrelevant columns, and filters out rare categories.
+- **Feature Engineering**: Creates new features like `age_glucose` and `bmi_age_ratio` to enhance predictive power.
+- **Resampling**: Uses SMOTEENN to address class imbalance in the dataset.
+- **Feature Selection**: Utilizes SHAP values to identify the most important features.
+- **Hyperparameter Optimization**: Employs Optuna to fine-tune model parameters for optimal performance.
+- **Ensemble Learning**: Combines multiple models (XGBoost, LightGBM, CatBoost, SVM) using stacking and voting classifiers for robust predictions.
 
-2.Install dependencies(preferably in a virtual environment):
+## Model Performance
+
+The final model achieves the following performance metrics:
+          precision    recall  f1-score   support
+
+       0       0.99      0.98      0.98       609
+       1       0.98      0.99      0.99       714
+
+accuracy                           0.99      1323
+macro avg 0.99 0.99 0.99 1323
+weighted avg 0.99 0.99 0.99 1323
+
+Final Optimized Accuracy: 0.9856
+
+
+## Requirements
+
+To run this project, you'll need the following Python libraries:
+
+- pandas
+- numpy
+- scikit-learn
+- xgboost
+- lightgbm
+- catboost
+- imbalanced-learn
+- optuna
+- shap
+
+You can install all required packages using:
+
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+pip install pandas numpy scikit-learn xgboost lightgbm catboost imbalanced-learn optuna shap
 
 
 
