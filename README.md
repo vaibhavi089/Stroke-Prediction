@@ -50,3 +50,12 @@ The dataset is imbalanced, with fewer stroke cases, addressed using SMOTEENN res
    ```bash
    git clone https://github.com/your-username/stroke-prediction.git
    cd stroke-prediction
+
+2.Install dependencies(preferably in a virtual environment):
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+
+
