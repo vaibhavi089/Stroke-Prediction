@@ -58,5 +58,35 @@ jupyter notebook model.ipynb
   2) Feature engineering
   3) Model training and optimization
   4) Evaluation
+
+## 📁 Dataset
+Contains 5,110 patient records with:
+```text
+• Demographic: age, gender
+• Medical: hypertension, heart disease
+• Lifestyle: smoking status, work type
+• Metrics: BMI, avg_glucose_level
+```
+## 🧠 Methodology
+1) Preprocessing:
+   - Dropped 'id' column
+   - Filled missing BMI values with median
+   - Removed rare categories('Other' gender, 'Never_worked')
+ 2) Feature Engineering:
+    - Created age_glucose (age × glucose level)
+    - Created bmi_age_ratio (BMI / (age+1))
+  3) Modelling:
+     - Used stratified 80-20 train-test split
+     - Applied StandardScaler
+     - Selected top 15 features via SHAP
+     - Optimized with 30 Optuna trials
+     - Final ensemble: StackingClassifier + VotingClassifier
+
+## 🔮 Future Improvements
+- Deploy as Flask/FastAPI web service
+- Add feature importance visualization
+- Experiment with neural networks
+- Create Docker container for deployment
+  
   
   
