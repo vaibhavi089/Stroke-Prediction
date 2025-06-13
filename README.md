@@ -26,10 +26,12 @@ A machine learning model that predicts stroke likelihood using patient health da
            1       0.98      0.99      0.99       714
 
     Accuracy: 0.9856
+```
 ## ⚙️ Installation
   ```bash
   pip install -r requirements.txt
 requirements.txt
+```
 ```text
 pandas>=1.3.0
 numpy>=1.21.0
@@ -40,6 +42,6 @@ catboost>=1.0.0
 imbalanced-learn>=0.9.0
 optuna>=3.0.0
 shap>=0.40.0
-
+```
 ##Usage
   
